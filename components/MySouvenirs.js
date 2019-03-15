@@ -13,6 +13,7 @@ const SouvenirWrapper = styled.div`
   border-radius:14px;
   min-width:80vw;
   margin:0 0 20px 0;
+  background-image: ${ props => (props.color || "background-image: linear-gradient(to right, #000 , #784343)")};
   `
 
 const HeroBg = styled.div`
@@ -20,7 +21,7 @@ const HeroBg = styled.div`
   flex-direction:column;
   justify-content:space-around;
   align-items:center;
-  background-image: linear-gradient(to right, #000 , #784343);
+  background-image: linear-gradient(to right, #000 , #333);
   min-width:100vw;
   min-height:100vh;
   overflow:visible;
@@ -46,7 +47,7 @@ const MySouvenirs = ({souvenirs, showCollection}) => {
   const souvenirList = souvenirs.map( souvenir => {
     if (souvenir!== 0){
       return (
-        <SouvenirWrapper className="post" key={Math.random()}>
+        <SouvenirWrapper color ={souvenir.color} className="post" key={Math.random()}>
             <ElementContainer center><ParagraphText>{souvenir.name}</ParagraphText></ElementContainer>
             <ElementContainer center><ParagraphText margin="0 0 15px 0">{souvenir.location}</ParagraphText></ElementContainer>
             <ElementContainer center><ParagraphText margin="0 5px">{souvenir.souvenirStory}</ParagraphText></ElementContainer>
